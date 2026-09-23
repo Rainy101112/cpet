@@ -1,7 +1,6 @@
 #ifndef INCLUDE_PET_H_
 #define INCLUDE_PET_H_
 
-#include <regex>
 #include <stdbool.h>
 
 struct pet_status {
@@ -34,5 +33,12 @@ typedef struct pet_status pet_status_t;
 typedef struct pet pet_t;
 typedef struct inventory inventory_t;
 typedef struct player player_t;
+
+player_t *create_player(void);
+pet_t *create_pet(void);
+void free_player(player_t *player);
+void free_pet(pet_t *pet);
+int set_player_name(player_t *player, char *name);
+int set_pet_name(pet_t *pet, char *name);
 
 #endif // INCLUDE_PET_H_

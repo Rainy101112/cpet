@@ -4,12 +4,6 @@
 #include <stdbool.h>
 
 #include "pet.h"
-#include "ini.h"
-
-player_t *create_player(void);
-pet_t *create_pet(void);
-void free_player(player_t *player);
-void free_pet(pet_t *pet);
 
 player_t *create_player(void) {
     player_t *player = (player_t *)malloc(sizeof(player_t));
@@ -82,10 +76,22 @@ void free_pet(pet_t *pet) {
     perror("Failed to free memory");
 }
 
-int main() {
-    printf("Welcome back, dear pet owner!\n");
+int set_player_name(player_t *player, char *name) {
+    if (player) {
+        player->name = name;
 
+        return 0;
+    }
 
+    return -1;
+}
 
-    return 0;
+int set_pet_name(pet_t *pet, char *name) {
+    if (pet) {
+        pet->name = name;
+
+        return 0;
+    }
+
+    return -1;
 }
